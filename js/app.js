@@ -1,4 +1,4 @@
-import TopLoadBar from "./topLoadBar";
+import TopLoadBar from "./topLoadBar.js";
 const loadBar = new TopLoadBar();
 class App {
   links = [];
