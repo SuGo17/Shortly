@@ -1,3 +1,5 @@
+import TopLoadBar from "./topLoadBar";
+const loadBar = new TopLoadBar();
 class App {
   links = [];
   body = document.querySelector("body");
@@ -44,13 +46,13 @@ class App {
       link.focus();
       return;
     }
-    console.log("hello");
-    this.#showLoadBar(this.body, this.progress);
+    loadBar.showLoadBar(this.body, this.progress);
     const linkURL = link.value.split("https://").filter((ele) => ele !== "")[0];
     const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${linkURL}`);
     const data = await res.json();
     if (!Boolean(data.ok)) {
-      this.#updateLoadBar(this.body, this.progress);
+      link.value = "";
+      loadBar.updateLoadBar(this.body, this.progress);
       return;
     }
     let abc = false;
@@ -59,14 +61,15 @@ class App {
       else abc = false;
     });
     if (abc) {
-      this.#updateLoadBar(this.body, this.progress);
+      link.value = "";
+      loadBar.updateLoadBar(this.body, this.progress);
       return;
     }
     this.links.push({ id: this.links.length + 1, ...data.result });
     localStorage.setItem("links", JSON.stringify(this.links));
     this.#display(this.links);
     link.value = "";
-    this.#updateLoadBar(this.body, this.progress);
+    loadBar.updateLoadBar(this.body, this.progress);
   };
   #inputChangeHandler = (e) => {
     const errorEle = document.querySelector(".shorten-form .error");
@@ -133,33 +136,12 @@ class App {
       // prettier-ignore
       link.innerHTML = `<p class="main-link">${this.#reduceLen(ele.original_link)}</p>
       <div class="shortened-link-container">
-        <p class="shortened-link">${ele.full_short_link}</p>
-        <button class="copy-link btn">Copy</button>
+      <p class="shortened-link">${ele.full_short_link}</p>
+      <button class="copy-link btn">Copy</button>
       </div>`;
       container.append(link);
     });
     this.#updateCopyBtns();
-  }
-  #showLoadBar(body, progress) {
-    if (progress) return;
-    const loadBar = document.createElement("div");
-    loadBar.innerHTML = "<b></b><i></i>";
-    loadBar.id = "progress";
-    body.append(loadBar);
-    setTimeout(() => {
-      loadBar.style.width = "75%";
-    }, 10);
-  }
-  #updateLoadBar() {
-    const loadBar = document.querySelector("#progress");
-    if (!loadBar) return;
-    console.log(loadBar);
-    setTimeout(() => {
-      loadBar.style.width = "100%";
-    }, 10);
-    setTimeout(() => {
-      loadBar.remove();
-    }, 1100);
   }
 }
 
