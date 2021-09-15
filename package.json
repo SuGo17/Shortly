@@ -1,0 +1,27 @@
+{
+  "name": "shortly",
+  "version": "1.0.0",
+  "description": "this is a link shotening and  boosting app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuGo17/shortly.git"
+  },
+  "keywords": [
+    "shortly"
+  ],
+  "author": "SuGo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuGo17/shortly/issues"
+  },
+  "homepage": "https://github.com/SuGo17/shortly#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

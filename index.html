@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Shortly - Home</title>
+    <script defer src="./js/index.js"></script>
+  </head>
+  <body>
+    <main>
+      <header class="header">
+        <nav>
+          <div class="nav">
+            <a href="#" class="logo">Shortly</a>
+            <div class="nav-bar">
+              <ul class="left-links">
+                <li><a href="#" class="nav-link">Features</a></li>
+                <li><a href="#" class="nav-link">Pricing</a></li>
+                <li><a href="#" class="nav-link">Resources</a></li>
+              </ul>
+              <ul class="right-links">
+                <li><a href="#" class="nav-link">Login</a></li>
+                <li><a href="#" class="nav-link btn">Sign Up</a></li>
+              </ul>
+            </div>
+            <ion-icon class="menu" name="menu-outline"></ion-icon>
+          </div>
+        </nav>
+        <section class="hero">
+          <div class="hero-left">
+            <h1 class="hero-title">More than just shorter links</h1>
+            <p class="hero-sub-title">
+              Build your brand's recognition and get detailed insights on how
+              your links are performing.
+            </p>
+            <a href="#" class="hero-btn btn">Get Started</a>
+          </div>
+          <div class="hero-right">
+            <img
+              src="./images/illustration-working.svg"
+              alt="Svg image of a person working on his computer"
+              class="hero-img"
+            />
+          </div>
+        </section>
+        <section class="shorten-form">
+          <form>
+            <input
+              type="text"
+              name="Link:"
+              id="link"
+              placeholder="Shorten a link here..."
+            />
+            <p class="error">Please add a valid link.</p>
+            <button type="submit" class="form-btn btn">Shorten It!</button>
+          </form>
+        </section>
+      </header>
+      <section class="features-section">
+        <div class="links-container"></div>
+        <div class="container">
+          <h2 class="title">Advanced Statistics</h2>
+          <p class="sub-title">
+            Track how your links are performing across the web with our advanced
+            statistics dashboard.
+          </p>
+          <div class="features-container">
+            <div class="inner-container">
+              <div class="feature-card">
+                <div class="card-img">
+                  <img
+                    src="./images/icon-brand-recognition.svg"
+                    alt="Brand Recognition"
+                  />
+                </div>
+                <h3 class="card-title">Brand Recognition</h3>
+                <p class="card-description">
+                  Boost your brand recognition with each click. Generic links
+                  don't mean a thing. Branded links help instil confidence in
+                  your content.
+                </p>
+              </div>
+              <div class="feature-card">
+                <div class="card-img">
+                  <img
+                    src="./images/icon-detailed-records.svg"
+                    alt="Detailed Records"
+                  />
+                </div>
+                <h3 class="card-title">Detailed Records</h3>
+                <p class="card-description">
+                  Gain insights into who is clicking your links. Knowing when
+                  and where people engage with your content helps inform better
+                  descisions.
+                </p>
+              </div>
+              <div class="feature-card">
+                <div class="card-img">
+                  <img
+                    src="./images/icon-fully-customizable.svg"
+                    alt="Fully Customizable"
+                  />
+                </div>
+                <h3 class="card-title">Fully Customizable</h3>
+                <p class="card-description">
+                  Improve brand awareness and content discoverabilit through
+                  customizable links, supercharging audience engagement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="boost-section">
+        <div class="container">
+          <h2 class="title">Boost your links today</h2>
+          <button class="btn boost-btn">Get Started</button>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="container">
+          <a class="logo" href="#">Shortly</a>
+          <div class="nav-container">
+            <ul class="nav-1 footer-nav">
+              <li class="title">Features</li>
+              <li><a href="#" class="nav-link">Link Shortening</a></li>
+              <li><a href="#" class="nav-link">Branded Links</a></li>
+              <li><a href="#" class="nav-link">Analytics</a></li>
+            </ul>
+            <ul class="nav-2 footer-nav">
+              <li class="title">Resources</li>
+              <li><a href="#" class="nav-link">Blog</a></li>
+              <li><a href="#" class="nav-link">Developers</a></li>
+              <li><a href="#" class="nav-link">Support</a></li>
+            </ul>
+            <ul class="nav-3 footer-nav">
+              <li class="title">Company</li>
+              <li><a href="#" class="nav-link">About</a></li>
+              <li><a href="#" class="nav-link">Our Team</a></li>
+              <li><a href="#" class="nav-link">Careers</a></li>
+              <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+            <ul class="nav-4 footer-nav">
+              <!-- prettier-ignore -->
+              <li>
+              <a href="#" class="nav-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+              <li>
+                <a href="#" class="nav-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- prettier-ignore -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!-- prettier-ignore -->
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
