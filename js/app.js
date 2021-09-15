@@ -1,5 +1,6 @@
 class App {
   links = [];
+  body = document.querySelector("body");
   constructor() {
     if (JSON.parse(localStorage.getItem("links")))
       this.links = JSON.parse(localStorage.getItem("links"));
@@ -53,11 +54,13 @@ class App {
       if (ele.original_link === data.result.original_link) abc = true;
       else abc = false;
     });
+    this.#showLoadBar(this.body, this.progress);
     if (abc) return;
     this.links.push({ id: this.links.length + 1, ...data.result });
     localStorage.setItem("links", JSON.stringify(this.links));
     this.#display(this.links);
     link.value = "";
+    this.#updateLoadBar(this.body, this.progress);
   };
   #inputChangeHandler = (e) => {
     const errorEle = document.querySelector(".shorten-form .error");
@@ -65,9 +68,12 @@ class App {
     errorEle.style.opacity = 0;
   };
   #reduceLen(str) {
-    if (window.innerWidth > 1024) {
+    if (window.innerWidth > 1284) {
       if (str.length <= 73) return str;
       return str.slice(0, 70).padEnd(73, ".");
+    } else if (window.innerWidth > 1024) {
+      if (str.length <= 55) return str;
+      return str.slice(0, 52).padEnd(55, ".");
     } else if (window.innerWidth > 950) {
       if (str.length <= 47) return str;
       return str.slice(0, 44).padEnd(47, ".");
@@ -128,5 +134,27 @@ class App {
     });
     this.#updateCopyBtns();
   }
+  #showLoadBar(body, progress) {
+    if (progress) return;
+    const loadBar = document.createElement("div");
+    loadBar.innerHTML = "<b></b><i></i>";
+    loadBar.id = "progress";
+    body.append(loadBar);
+    setTimeout(() => {
+      loadBar.style.width = "75%";
+    }, 10);
+  }
+  #updateLoadBar() {
+    const loadBar = document.querySelector("#progress");
+    if (!loadBar) return;
+    console.log(loadBar);
+    setTimeout(() => {
+      loadBar.style.width = "100%";
+    }, 10);
+    setTimeout(() => {
+      loadBar.remove();
+    }, 1100);
+  }
 }
+
 export default App;
