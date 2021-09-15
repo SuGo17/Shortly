@@ -45,17 +45,23 @@ class App {
       return;
     }
     console.log("hello");
+    this.#showLoadBar(this.body, this.progress);
     const linkURL = link.value.split("https://").filter((ele) => ele !== "")[0];
     const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${linkURL}`);
     const data = await res.json();
-    if (!Boolean(data.ok)) return;
+    if (!Boolean(data.ok)) {
+      this.#updateLoadBar(this.body, this.progress);
+      return;
+    }
     let abc = false;
     this.links.forEach((ele) => {
       if (ele.original_link === data.result.original_link) abc = true;
       else abc = false;
     });
-    this.#showLoadBar(this.body, this.progress);
-    if (abc) return;
+    if (abc) {
+      this.#updateLoadBar(this.body, this.progress);
+      return;
+    }
     this.links.push({ id: this.links.length + 1, ...data.result });
     localStorage.setItem("links", JSON.stringify(this.links));
     this.#display(this.links);
@@ -84,8 +90,8 @@ class App {
       if (str.length <= 37) return str;
       return str.slice(0, 34).padEnd(37, ".");
     } else if (window.innerWidth > 375) {
-      if (str.length <= 45) return str;
-      return str.slice(0, 42).padEnd(45, ".");
+      if (str.length <= 40) return str;
+      return str.slice(0, 37).padEnd(40, ".");
     } else if (window.innerWidth > 280) {
       if (str.length <= 32) return str;
       return str.slice(0, 29).padEnd(32, ".");
