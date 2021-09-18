@@ -38,7 +38,8 @@ class App {
       !link.value.trim() ||
       link.value.split(" ").length > 1 ||
       link.value.split(".").length === 1 ||
-      link.value.split(".").includes("")
+      link.value.split(".").includes("") ||
+      link.value.split("shrtco.de").length > 1
     ) {
       link.classList.remove("err");
       link.classList.add("err");
